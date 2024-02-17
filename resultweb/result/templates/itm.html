@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Datagram: IT Manager{% endblock %}
+
+{% block content %}
+<section id="services" class="services sections-bg">
+  <div class="section-header">
+    <h1>IT Manager</h1>
+  </div>
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <h2>Selected for First Round</h2>
+      </div>
+
+      <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+
+        {% for item in data%}
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item  position-relative">
+            <h3>{{ item.name }}</h3>
+            <p>Leader : </p><h4>{{ item.team_leader }}</h4>
+            <br>
+            <br>
+            <p>Score :</p>
+            <h1>{{ item.points }}</h1>
+            
+          </div>
+        </div><!-- End Service Item -->
+        {% endfor %}
+      </div>
+
+
+    </div>
+  </section>
+  <br>
+  <section id="services" class="services sections-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <h2>Selected for Final Round</h2>
+      </div>
+
+      <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+
+        {% for item in data%}
+        {% if item.final %}
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item  position-relative">
+            <h3>{{ item.name }}</h3>
+            <p>Leader : </p><h4>{{ item.team_leader }}</h4>
+            <br>
+            <br>
+            <p>Score :</p>
+            <h1>{{ item.points }}</h1>
+            
+          </div>
+        </div><!-- End Service Item -->
+
+
+        {% endif %}
+        {% endfor %}
+      </div>
+
+
+    </div>
+  </section>
+
+{% endblock %}
